@@ -45,6 +45,14 @@ const nextConfig: NextConfig = {
     return webpackConfig
   },
   reactStrictMode: true,
+  experimental: {
+    serverActions: {
+      allowedOrigins: [
+        'localhost:3000',
+        'studious-dollop-5v9w5gv9jg6424w5j-3000.app.github.dev',
+      ],
+    },
+  },
   redirects,
   turbopack: {
     root: path.resolve(dirname),

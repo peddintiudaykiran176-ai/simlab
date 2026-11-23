@@ -86,7 +86,6 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
           </div>
         </form>
       )}
-
     
     </nav>
   )

@@ -57,15 +57,10 @@ export const PostHero: React.FC<{
       <div className="space-y-5 text-foreground">
         <h1 className="text-3xl font-bold tracking-tight md:text-4xl">{title}</h1>
         <div className="flex flex-wrap items-end gap-x-8 gap-y-4 text-sm">
-          {authorContent}
-          {publishedAtContent}
+         
           {categoryContent}
         </div>
-        {heroImage && typeof heroImage !== 'string' && (
-          <div className="relative aspect-[16/7] overflow-hidden rounded-xl">
-            <Media fill priority imgClassName="object-cover" resource={heroImage} />
-          </div>
-        )}
+        
       </div>
     )
   }

@@ -4,7 +4,6 @@ import { Atom, ArrowUpRight } from 'lucide-react'
 
 import type { Media, Post } from '@/payload-types'
 import { Media as MediaComponent } from '@/components/Media'
-import { formatDateTime } from '@/utilities/formatDateTime'
 
 export type SimulationCardPost = Pick<
   Post,
@@ -42,18 +41,9 @@ export const SimulationThumbnail: React.FC<{
   )
 }
 
-const categoryTitle = (post: SimulationCardPost) => {
-  const category = post.categories?.find((item) => typeof item === 'object')
-  return category && typeof category === 'object' ? category.title : null
-}
-
 export const SimulationCard: React.FC<{
   post: SimulationCardPost
 }> = ({ post }) => {
-  const description = post.meta?.description?.trim()
-  const category = categoryTitle(post)
-  const date = post.publishedAt || post.createdAt
-
   return (
     <article className="group min-w-0">
       <Link
@@ -63,11 +53,6 @@ export const SimulationCard: React.FC<{
       >
         <SimulationThumbnail className="aspect-video" post={post} />
         <div className="space-y-2 p-4">
-          {category && (
-            <p className="text-xs font-semibold uppercase tracking-wide text-[#2563EB]">
-              {category}
-            </p>
-          )}
           <div className="flex items-start justify-between gap-2">
             <h3 className="line-clamp-2 text-base font-semibold leading-snug text-card-foreground">
               {post.title}
@@ -77,12 +62,6 @@ export const SimulationCard: React.FC<{
               className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-[#2563EB]"
             />
           </div>
-          {description && (
-            <p className="line-clamp-2 text-sm leading-6 text-muted-foreground">{description}</p>
-          )}
-          {date && (
-            <p className="pt-1 text-xs text-muted-foreground">Published {formatDateTime(date)}</p>
-          )}
         </div>
       </Link>
     </article>
