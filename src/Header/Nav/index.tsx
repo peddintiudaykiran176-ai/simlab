@@ -87,14 +87,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
         </form>
       )}
 
-      <Link
-        aria-label="Sign in to Payload"
-        className="inline-flex h-9 items-center gap-2 rounded-full bg-[#2563EB] px-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700 sm:px-4"
-        href="/admin/login"
-      >
-        <UserRound aria-hidden="true" className="size-4" />
-        <span className="hidden sm:inline">Sign in</span>
-      </Link>
+    
     </nav>
   )
 }
